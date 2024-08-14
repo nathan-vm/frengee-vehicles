@@ -1,0 +1,29 @@
+{
+  "name": "frengee-vehicles",
+  "version": "0.1.0",
+  "description": "Manage vehicles for your auto dealer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "test": "ts-jest"
+  },
+  "keywords": [
+    "auto-dealers",
+    "car-dealers",
+    "dealerships",
+    "car-dealerships",
+    "car-shop"
+  ],
+  "author": "Nathan Vieira Marcelino",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.3.0",
+    "eslint": "^9.9.0",
+    "typescript": "^5.5.4"
+  }
+}
