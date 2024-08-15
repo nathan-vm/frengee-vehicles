@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "name": "Attach Debug",
+      "type": "node",
+      "request": "attach",
+      "restart": true,
+      "port": 9229,
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/usr/src/app",
+      "skipFiles": [
+        "${workspaceFolder}/usr/src/app/node_modules/**/*",
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}
