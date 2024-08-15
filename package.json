@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server.js",
+    "dev": "node --watch -r ts-node/register --inspect=0.0.0.0 src/server.ts",
     "build": "tsc",
     "test": "ts-jest"
   },
@@ -29,6 +30,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.9.0",
     "prettier": "3.3.3",
+    "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0"
   }
