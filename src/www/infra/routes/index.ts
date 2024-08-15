@@ -3,6 +3,6 @@ import vehicleRoutes from "../../../modules/vehicles/infra/www/routes";
 
 const routes = Router();
 
-routes.use("/api/v1/vehicles", vehicleRoutes);
+routes.use(vehicleRoutes);
 
 export default routes;

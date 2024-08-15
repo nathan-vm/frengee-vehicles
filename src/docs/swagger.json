@@ -1,0 +1,251 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Frengee Vehicles API",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "nathan.v.marcelino@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/nathan-vm/frengee-vehicles?tab=MIT-1-ov-file"
+    },
+    "version": "0.1.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "vehicles"
+    }
+  ],
+  "paths": {
+    "/vehicles": {
+      "get": {
+        "tags": [
+          "vehicles"
+        ],
+        "description": "List all vehicles",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vehicle"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Vehicle not found"
+          },
+          "409": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "vehicles"
+        ],
+        "description": "Add a new vehicle.",
+        "requestBody": {
+          "description": "Create a new vehicle.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicle"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "422": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/vehicles/{id}": {
+      "get": {
+        "tags": [
+          "vehicles"
+        ],
+        "description": "Find a vehicles",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of vehicle to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Vehicle not found"
+          },
+          "409": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "vehicles"
+        ],
+        "description": "Update vehicle",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of vehicle to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create a new vehicle.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicle"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "422": {
+            "description": "Validation exception"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "vehicles"
+        ],
+        "description": "Add a new vehicle.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of vehicle to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "422": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Vehicle": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "66be5a178216399cc6434247"
+          },
+          "name": {
+            "type": "string",
+            "example": "66be5a178216399cc6434247"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CreateVehicle": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "BMW"
+          }
+        },
+        "xml": {
+          "name": "order"
+        }
+      }
+    },
+    "requestBodies": {
+      "CreateVehicle": {
+        "description": "Vehicle object that needs to be added to the store",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateVehicle"
+            }
+          }
+        }
+      }
+    }
+  }
+}

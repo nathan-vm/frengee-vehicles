@@ -21,14 +21,30 @@ const createVehiclesController = CreateVehiclesController(vehicleRepository);
 const updateVehiclesController = UpdateVehiclesController(vehicleRepository);
 const deleteVehiclesController = DeleteVehiclesController(vehicleRepository);
 
-vehicleRoutes.get("/", listVehiclesController);
+vehicleRoutes.get("/vehicles", listVehiclesController);
 
-vehicleRoutes.get("/:id", findVehiclesValidator, findVehiclesController);
+vehicleRoutes.get(
+  "/vehicles/:id",
+  findVehiclesValidator,
+  findVehiclesController,
+);
 
-vehicleRoutes.post("/", createVehiclesValidator, createVehiclesController);
+vehicleRoutes.post(
+  "/vehicles",
+  createVehiclesValidator,
+  createVehiclesController,
+);
 
-vehicleRoutes.put("/:id", updateVehiclesValidator, updateVehiclesController);
+vehicleRoutes.put(
+  "/vehicles/:id",
+  updateVehiclesValidator,
+  updateVehiclesController,
+);
 
-vehicleRoutes.delete("/:id", deleteVehiclesValidator, deleteVehiclesController);
+vehicleRoutes.delete(
+  "/vehicles/:id",
+  deleteVehiclesValidator,
+  deleteVehiclesController,
+);
 
 export default vehicleRoutes;
