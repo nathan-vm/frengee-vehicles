@@ -5,6 +5,7 @@ import routes from "./infra/routes";
 import environment from "../config/environment";
 import limiter from "./infra/middleware/rateLimiter";
 import { errors } from "celebrate";
+import errorHandler from "./infra/middleware/errorHandler";
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.use(limiter);
 app.use(routes);
 
 app.use(errors());
+
+app.use(errorHandler);
 
 app.listen(environment.PORT, () => {
   console.log(
