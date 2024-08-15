@@ -2,7 +2,7 @@
   "name": "frengee-vehicles",
   "version": "0.1.0",
   "description": "Manage vehicles for your auto dealer",
-  "main": "index.js",
+  "main": "dist/www/server.js",
   "scripts": {
     "dev": "node --watch -r ts-node/register --inspect=0.0.0.0 src/www/server.ts",
     "build": "tsc",
@@ -21,6 +21,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "express-async-errors": "^3.1.1",
+    "http-status-codes": "^2.3.0",
     "jest": "^29.7.0",
     "mongodb": "^6.8.0",
     "ts-jest": "^29.2.4"
