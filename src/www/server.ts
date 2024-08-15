@@ -3,11 +3,13 @@ import "express-async-errors";
 import cors from "cors";
 import routes from "./infra/routes";
 import environment from "../config/environment";
+import limiter from "./infra/middleware/rateLimiter";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(limiter);
 
 app.use(routes);
 
