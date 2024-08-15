@@ -10,7 +10,7 @@ const CreateVehiclesController = (repository: IVehicleRepository) => {
   return async (req: Request, res: Response) => {
     const { name } = req.body;
     try {
-      const vehicles = createVehiclesService({ name });
+      const vehicles = await createVehiclesService({ name });
 
       res.status(201).json({ data: vehicles });
     } catch (e) {
