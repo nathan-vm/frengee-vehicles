@@ -6,8 +6,8 @@ const CreateVehiclesController = (repository: IVehicleRepository) => {
   const createVehiclesService = CreateVehiclesService(repository);
 
   return async (req: Request, res: Response) => {
-    const { name } = req.body;
-    const vehicles = await createVehiclesService({ name });
+    const data = req.body;
+    const vehicles = await createVehiclesService(data);
 
     res.status(201).json({ data: vehicles });
   };

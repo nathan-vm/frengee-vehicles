@@ -6,6 +6,8 @@ const updateVehiclesValidator = celebrate({
   },
   [Segments.BODY]: {
     name: Joi.string(),
+    brand: Joi.string(),
+    year: Joi.number().positive(),
   },
 });
 

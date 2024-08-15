@@ -7,10 +7,10 @@ const updateVehiclesController = (repository: IVehicleRepository) => {
 
   return async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { name } = req.body;
+    const data = req.body;
 
-    const data = await updateVehiclesService(id, { name });
-    res.json({ data });
+    const vehicle = await updateVehiclesService(id, data);
+    res.json({ data: vehicle });
     return;
   };
 };
