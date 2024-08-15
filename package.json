@@ -19,6 +19,7 @@
   "author": "Nathan Vieira Marcelino",
   "license": "MIT",
   "dependencies": {
+    "celebrate": "^15.0.3",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",

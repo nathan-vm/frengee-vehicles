@@ -4,6 +4,7 @@ import cors from "cors";
 import routes from "./infra/routes";
 import environment from "../config/environment";
 import limiter from "./infra/middleware/rateLimiter";
+import { errors } from "celebrate";
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(express.json());
 app.use(limiter);
 
 app.use(routes);
+
+app.use(errors());
 
 app.listen(environment.PORT, () => {
   console.log(

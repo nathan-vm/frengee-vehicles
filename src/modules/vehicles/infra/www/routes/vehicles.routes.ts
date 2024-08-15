@@ -7,6 +7,11 @@ import FindVehiclesController from "../controllers/FindVehicles.controller";
 import UpdateVehiclesController from "../controllers/UpdateVehicles.controller";
 import DeleteVehiclesController from "../controllers/DeleteVehicles.controller";
 
+import findVehiclesValidator from "../validators/findVehicles.validator";
+import createVehiclesValidator from "../validators/createVehicles.validator";
+import deleteVehiclesValidator from "../validators/deleteVehicles.validator";
+import updateVehiclesValidator from "../validators/updateVehicles.validator";
+
 const vehicleRoutes = Router();
 const vehicleRepository = VehicleRepository();
 
@@ -18,12 +23,12 @@ const deleteVehiclesController = DeleteVehiclesController(vehicleRepository);
 
 vehicleRoutes.get("/", listVehiclesController);
 
-vehicleRoutes.get("/:id", findVehiclesController);
+vehicleRoutes.get("/:id", findVehiclesValidator, findVehiclesController);
 
-vehicleRoutes.post("/", createVehiclesController);
+vehicleRoutes.post("/", createVehiclesValidator, createVehiclesController);
 
-vehicleRoutes.put("/:id", updateVehiclesController);
+vehicleRoutes.put("/:id", updateVehiclesValidator, updateVehiclesController);
 
-vehicleRoutes.delete("/:id", deleteVehiclesController);
+vehicleRoutes.delete("/:id", deleteVehiclesValidator, deleteVehiclesController);
 
 export default vehicleRoutes;
