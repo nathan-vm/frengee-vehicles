@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node --watch -r ts-node/register --inspect=0.0.0.0 src/www/server.ts",
     "build": "tsc",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest ./src/modules",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "node --experimental-vm-modules node_modules/.bin/jest ./src/modules",
     "test:integration": "node --experimental-vm-modules node_modules/.bin/jest ./src/__test__ --detectOpenHandles",
     "start": "node dist/server.js"
   },
