@@ -11,9 +11,14 @@ import findVehiclesValidator from "../validators/findVehicles.validator";
 import createVehiclesValidator from "../validators/createVehicles.validator";
 import deleteVehiclesValidator from "../validators/deleteVehicles.validator";
 import updateVehiclesValidator from "../validators/updateVehicles.validator";
+import environment from "../../../../../config/environment";
+import VehicleRepositoryMock from "../../../repositories/VehicleRepositoryMock";
 
 const vehicleRoutes = Router();
-const vehicleRepository = VehicleRepository();
+const vehicleRepository =
+  environment.NODE_ENV !== "test"
+    ? VehicleRepository()
+    : VehicleRepositoryMock();
 
 const listVehiclesController = ListVehiclesController(vehicleRepository);
 const findVehiclesController = FindVehiclesController(vehicleRepository);

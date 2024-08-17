@@ -8,7 +8,7 @@ export default function VehicleRepository(): IVehicleRepository {
 
   MongoClient.connect(environment.DB_URL)
     .then((db) => {
-      repository = db.db(environment.DB_NAME).collection<Vehicle>("vehicles");
+      repository = db.db(environment.DB_NAME!).collection<Vehicle>("vehicles");
     })
     .catch((e) => {
       console.log(e);
