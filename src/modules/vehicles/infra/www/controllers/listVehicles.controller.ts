@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import IVehicleRepository from "../../../repositories/IVehicleRepository";
 import ListVehiclesService from "../../../services/ListVehicles.service";
 
-const listVehiclesController = (repository: IVehicleRepository) => {
+const ListVehiclesController = (repository: IVehicleRepository) => {
   const listVehiclesService = ListVehiclesService(repository);
 
   return async (_: Request, res: Response) => {
@@ -12,4 +12,4 @@ const listVehiclesController = (repository: IVehicleRepository) => {
   };
 };
 
-export default listVehiclesController;
+export default ListVehiclesController;

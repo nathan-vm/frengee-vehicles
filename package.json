@@ -1,12 +1,13 @@
 {
   "name": "frengee-vehicles",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Manage vehicles for your auto dealer",
   "main": "dist/www/server.js",
   "scripts": {
     "dev": "node --watch -r ts-node/register --inspect=0.0.0.0 src/www/server.ts",
     "build": "tsc",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest ./src/modules",
+    "test:integration": "node --experimental-vm-modules node_modules/.bin/jest ./src/__test__ --detectOpenHandles",
     "start": "node dist/server.js"
   },
   "keywords": [
@@ -27,6 +28,7 @@
     "http-status-codes": "^2.3.0",
     "jest": "^29.7.0",
     "mongodb": "^6.8.0",
+    "supertest": "^7.0.0",
     "swagger-ui-express": "^5.0.1",
     "ts-jest": "^29.2.4"
   },
@@ -36,6 +38,7 @@
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
     "@types/node": "^22.3.0",
+    "@types/supertest": "^6.0.2",
     "@types/swagger-ui-express": "^4.1.6",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",

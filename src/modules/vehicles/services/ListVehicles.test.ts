@@ -11,10 +11,22 @@ describe("List Vehicles Service Test Suit", () => {
     listVehiclesService = ListVehiclesService(vehicleRepositoryTest);
   });
 
-  it("should be able to create a Vehicle", async () => {
-    await vehicleRepositoryTest.create({ name: "Test_1" });
-    await vehicleRepositoryTest.create({ name: "Test_2" });
-    await vehicleRepositoryTest.create({ name: "Test_3" });
+  it("should be able to List all Vehicles", async () => {
+    await vehicleRepositoryTest.create({
+      name: "Test_1",
+      brand: "Test_Brand",
+      year: 2024,
+    });
+    await vehicleRepositoryTest.create({
+      name: "Test_2",
+      brand: "Test_Brand",
+      year: 2024,
+    });
+    await vehicleRepositoryTest.create({
+      name: "Test_3",
+      brand: "Test_Brand",
+      year: 2024,
+    });
 
     const list = await listVehiclesService();
 

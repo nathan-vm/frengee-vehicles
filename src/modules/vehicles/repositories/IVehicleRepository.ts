@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { CreateVehicle, UpdateVehicle } from "../dtos/vehicles.dto";
 import Vehicle from "../infra/database/entities/Vehicles";
 
