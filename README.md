@@ -55,6 +55,8 @@ Frengee Vehicles exposes a RESTful API with the following endpoints:
 
 The API is documented using Swagger, providing a detailed overview of available endpoints, request/response formats, and data models.
 
+Te swagger can be found on the route `/docs`. If you use the default envs: `http://localhost:3000/docs`
+
 #### Swagger Overview
 
     Title: Frengee Vehicles API
